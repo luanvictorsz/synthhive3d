@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Synth Hive 3D</title>
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --yellow: #FFD600;
+      --black:  #0A0A0A;
+      --dark:   #141414;
+      --dark2:  #1C1C1C;
+      --white:  #F0EBE1;
+      --grey:   #777;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'Syne', sans-serif; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 56px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,214,0,0.12);
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px; letter-spacing: 4px;
+    }
+    .logo span { color: var(--yellow); }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a {
+      color: var(--grey); text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--yellow); }
+    .nav-btn {
+      background: var(--yellow); color: var(--black);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      border: none; padding: 11px 24px; cursor: pointer; transition: opacity 0.2s;
+    }
+    .nav-btn:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 160px 56px 100px;
+      max-width: 760px;
+    }
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; letter-spacing: 4px; color: var(--yellow);
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(72px, 10vw, 140px);
+      line-height: 0.9; letter-spacing: 2px;
+    }
+    .hero h1 em { color: var(--yellow); font-style: normal; }
+    .hero p {
+      margin-top: 28px; font-size: 17px;
+      color: var(--grey); line-height: 1.8; max-width: 480px;
+    }
+    .hero-actions { margin-top: 44px; display: flex; gap: 16px; }
+    .btn-y {
+      background: var(--yellow); color: var(--black);
+      font-family: 'Space Mono', monospace;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      border: none; padding: 15px 34px; cursor: pointer; text-decoration: none;
+      display: inline-block; transition: opacity 0.2s;
+    }
+    .btn-y:hover { opacity: 0.85; }
+    .btn-o {
+      background: transparent; color: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-family: 'Space Mono', monospace;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 15px 34px; cursor: pointer; text-decoration: none;
+      display: inline-block; transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-o:hover { border-color: var(--yellow); color: var(--yellow); }
+
+    /* ── TICKER ── */
+    .ticker-wrap { background: var(--yellow); padding: 10px 0; overflow: hidden; }
+    .ticker { display: flex; white-space: nowrap; animation: tick 26s linear infinite; }
+    .ticker span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px; letter-spacing: 4px; color: var(--black); padding: 0 28px;
+    }
+    .ticker span.dot { padding: 0; color: rgba(0,0,0,0.25); }
+    @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SECTION HEADER ── */
+    .s-header { padding: 90px 56px 48px; }
+    .s-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 5vw, 68px); letter-spacing: 2px; line-height: 1;
+    }
+    .s-header p { color: var(--grey); font-size: 15px; margin-top: 12px; max-width: 420px; line-height: 1.7; }
+
+    /* ── PRODUCTS GRID ── */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.04);
+      margin: 0 56px 90px;
+    }
+
+    .product-card {
+      background: var(--black);
+      transition: background 0.25s;
+    }
+    .product-card:hover { background: var(--dark); }
+
+    /* Área de imagem — ocupa toda a largura, proporção 4:3 */
+    .prod-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--dark2);
+      position: relative;
+    }
+    .prod-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.5s;
+    }
+    .product-card:hover .prod-img img { transform: scale(1.04); }
+
+    /* Placeholder visual neutro enquanto não há foto */
+    .prod-img-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+      border: 2px dashed rgba(255,214,0,0.18);
+      color: rgba(255,214,0,0.3);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; letter-spacing: 2px; text-align: center;
+    }
+
+    .prod-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: var(--yellow); color: var(--black);
+      font-family: 'Space Mono', monospace;
+      font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 4px 10px;
+    }
+
+    /* Info do card */
+    .prod-info { padding: 22px 24px 26px; }
+    .prod-cat {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--yellow); margin-bottom: 6px;
+    }
+    .prod-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 30px; letter-spacing: 1px; color: var(--white);
+      margin-bottom: 8px;
+    }
+    .prod-desc { font-size: 13px; color: var(--grey); line-height: 1.65; margin-bottom: 22px; }
+    .prod-footer { display: flex; align-items: center; justify-content: space-between; }
+    .prod-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px; color: var(--yellow);
+    }
+    .prod-price small {
+      font-family: 'Syne', sans-serif; font-size: 13px;
+      color: var(--grey); margin-right: 4px;
+    }
+    .prod-btn {
+      background: transparent; color: var(--yellow);
+      border: 1px solid rgba(255,214,0,0.3);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 9px 18px; cursor: pointer; transition: all 0.2s;
+    }
+    .prod-btn:hover { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
+
+    /* ── PROCESSO ── */
+    .processo {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 80px 56px;
+    }
+    .processo h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 4vw, 58px); letter-spacing: 2px;
+      margin-bottom: 52px;
+    }
+    .processo-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;
+    }
+    .step-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px; color: var(--yellow);
+      line-height: 1; margin-bottom: 10px;
+    }
+    .step-title {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: 15px; margin-bottom: 8px;
+    }
+    .step-desc { font-size: 13px; color: var(--grey); line-height: 1.7; }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 100px 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .cta-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 6vw, 80px); letter-spacing: 2px; line-height: 1;
+    }
+    .cta-text h2 span { color: var(--yellow); }
+    .cta-text p { font-size: 15px; color: var(--grey); margin-top: 16px; max-width: 420px; line-height: 1.75; }
+    .cta-buttons { display: flex; flex-direction: column; gap: 12px; min-width: 240px; }
+    .cta-link {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 22px;
+      background: var(--dark); border: 1px solid rgba(255,255,255,0.07);
+      color: var(--white); text-decoration: none; font-size: 14px;
+      font-weight: 700; transition: border-color 0.2s, background 0.2s;
+    }
+    .cta-link:hover { border-color: var(--yellow); background: var(--dark2); }
+    .cta-link .icon { font-size: 20px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 56px;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    footer .logo { font-size: 20px; }
+    footer p { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--grey); letter-spacing: 1px; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+    .reveal.on { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) {
+      .products { grid-template-columns: repeat(2, 1fr); margin: 0 24px 60px; }
+      .processo-steps { grid-template-columns: repeat(2, 1fr); }
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero, .s-header, .processo, .cta-section { padding-left: 24px; padding-right: 24px; }
+      footer { padding: 28px 24px; }
+    }
+    @media (max-width: 600px) {
+      .products { grid-template-columns: 1fr; }
+      .processo-steps { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .cta-section { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">SYNTH <span>HIVE</span> 3D</div>
+    <ul class="nav-links">
+      <li><a href="#produtos">Produtos</a></li>
+      <li><a href="#processo">Processo</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <button class="nav-btn" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Pedir Orçamento</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero reveal">
+    <div class="hero-eyebrow">Impressão 3D Premium</div>
+    <h1>MODELOS<br><em>3D ÚNICOS</em></h1>
+    <p>Chaveiros, suportes para Alexa, decorações, action figures e máscaras. Cada peça impressa com precisão e acabamento profissional.</p>
+    <div class="hero-actions">
+      <a href="#produtos" class="btn-y">Ver Catálogo</a>
+      <a href="#contato" class="btn-o">Peça o Seu</a>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>CHAVEIROS</span><span class="dot">✦</span>
+      <span>SUPORTE ALEXA</span><span class="dot">✦</span>
+      <span>DECORATIVOS</span><span class="dot">✦</span>
+      <span>ACTION FIGURES</span><span class="dot">✦</span>
+      <span>MÁSCARAS</span><span class="dot">✦</span>
+      <span>PERSONALIZADO</span><span class="dot">✦</span>
+      <span>ENTREGA RÁPIDA</span><span class="dot">✦</span>
+      <span>SYNTH HIVE 3D</span><span class="dot">✦</span>
+      <!-- duplicado para loop -->
+      <span>CHAVEIROS</span><span class="dot">✦</span>
+      <span>SUPORTE ALEXA</span><span class="dot">✦</span>
+      <span>DECORATIVOS</span><span class="dot">✦</span>
+      <span>ACTION FIGURES</span><span class="dot">✦</span>
+      <span>MÁSCARAS</span><span class="dot">✦</span>
+      <span>PERSONALIZADO</span><span class="dot">✦</span>
+      <span>ENTREGA RÁPIDA</span><span class="dot">✦</span>
+      <span>SYNTH HIVE 3D</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- PRODUTOS -->
+  <section id="produtos">
+    <div class="s-header reveal">
+      <h2>NOSSOS PRODUTOS</h2>
+      <p>Cada peça é impressa sob demanda com filamento premium e acabamento profissional.</p>
+    </div>
+
+    <div class="products">
+
+      <!-- CHAVEIROS -->
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <!--
+            COLOQUE A IMAGEM AQUI:
+            <img src="imagens/chaveiros.jpg" alt="Chaveiros 3D" />
+          -->
+          <div class="prod-img-placeholder">
+            <div>📷</div>
+            <div>FOTO DOS CHAVEIROS<br><small>600 × 450 px</small></div>
+          </div>
+          <div class="prod-badge">TOP VENDA</div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-cat">Acessório</div>
+          <div class="prod-name">Chaveiros 3D</div>
+          <p class="prod-desc">Personalizados com qualquer tema: logos, personagens, formas geométricas e muito mais.</p>
+          <div class="prod-footer">
+            <div class="prod-price"><small>a partir de R$</small>15</div>
+            <button class="prod-btn" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUPORTE ALEXA -->
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <!--
+            COLOQUE A IMAGEM AQUI:
+            <img src="imagens/suporte-alexa.jpg" alt="Suporte Alexa 3D" />
+          -->
+          <div class="prod-img-placeholder">
+            <div>📷</div>
+            <div>FOTO SUPORTE ALEXA<br><small>600 × 450 px</small></div>
+          </div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-cat">Organização</div>
+          <div class="prod-name">Suporte Alexa</div>
+          <p class="prod-desc">Suportes decorativos para Amazon Echo, Dot e demais modelos. Designs exclusivos.</p>
+          <div class="prod-footer">
+            <div class="prod-price"><small>a partir de R$</small>45</div>
+            <button class="prod-btn" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DECORATIVOS -->
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <!--
+            COLOQUE A IMAGEM AQUI:
+            <img src="imagens/decorativos.jpg" alt="Modelos decorativos 3D" />
+          -->
+          <div class="prod-img-placeholder">
+            <div>📷</div>
+            <div>FOTO DECORATIVOS<br><small>600 × 450 px</small></div>
+          </div>
+          <div class="prod-badge">EXCLUSIVO</div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-cat">Decoração</div>
+          <div class="prod-name">Decorativos</div>
+          <p class="prod-desc">Esculturas, miniaturas e objetos decorativos para transformar qualquer ambiente.</p>
+          <div class="prod-footer">
+            <div class="prod-price"><small>a partir de R$</small>60</div>
+            <button class="prod-btn" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTION FIGURES -->
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <!--
+            COLOQUE A IMAGEM AQUI:
+            <img src="imagens/action-figures.jpg" alt="Action figures 3D" />
+          -->
+          <div class="prod-img-placeholder">
+            <div>📷</div>
+            <div>FOTO ACTION FIGURES<br><small>600 × 450 px</small></div>
+          </div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-cat">Colecionável</div>
+          <div class="prod-name">Action Figures</div>
+          <p class="prod-desc">Figuras detalhadas de personagens, heróis, vilões e criações originais.</p>
+          <div class="prod-footer">
+            <div class="prod-price"><small>a partir de R$</small>80</div>
+            <button class="prod-btn" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MÁSCARAS -->
+      <div class="product-card reveal">
+        <div class="prod-img">
+          <!--
+            COLOQUE A IMAGEM AQUI:
+            <img src="imagens/mascaras.jpg" alt="Máscaras 3D" />
+          -->
+          <div class="prod-img-placeholder">
+            <div>📷</div>
+            <div>FOTO DAS MÁSCARAS<br><small>600 × 450 px</small></div>
+          </div>
+          <div class="prod-badge">DESTAQUE</div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-cat">Cosplay / Arte</div>
+          <div class="prod-name">Máscaras 3D</div>
+          <p class="prod-desc">Para cosplay, decoração e eventos. Personagens, robôs, animais e designs únicos.</p>
+          <div class="prod-footer">
+            <div class="prod-price"><small>a partir de R$</small>120</div>
+            <button class="prod-btn" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERSONALIZADO -->
+      <div class="product-card reveal" style="border: 1px solid rgba(255,214,0,0.2)">
+        <div class="prod-img">
+          <!--
+            COLOQUE A IMAGEM AQUI:
+            <img src="imagens/personalizado.jpg" alt="Modelo personalizado 3D" />
+          -->
+          <div class="prod-img-placeholder">
+            <div>📷</div>
+            <div>FOTO PERSONALIZADO<br><small>600 × 450 px</small></div>
+          </div>
+          <div class="prod-badge" style="background:var(--black);color:var(--yellow);border:1px solid var(--yellow)">VOCÊ CRIA</div>
+        </div>
+        <div class="prod-info">
+          <div class="prod-cat">Personalizado</div>
+          <div class="prod-name">Seu Modelo</div>
+          <p class="prod-desc">Envie seu arquivo STL ou sua ideia. Imprimimos qualquer modelo sob medida.</p>
+          <div class="prod-footer">
+            <div class="prod-price" style="font-size:18px;line-height:1.3">Orçamento<br>Grátis</div>
+            <button class="prod-btn" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Enviar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section id="processo" class="processo reveal">
+    <h2>DO PEDIDO À ENTREGA</h2>
+    <div class="processo-steps">
+      <div>
+        <div class="step-num">01</div>
+        <div class="step-title">Escolha ou Envie</div>
+        <p class="step-desc">Selecione um produto do catálogo ou envie seu arquivo STL para impressão personalizada.</p>
+      </div>
+      <div>
+        <div class="step-num">02</div>
+        <div class="step-title">Orçamento</div>
+        <p class="step-desc">Enviamos um orçamento rápido com prazo e opções de material e cor disponíveis.</p>
+      </div>
+      <div>
+        <div class="step-num">03</div>
+        <div class="step-title">Impressão</div>
+        <p class="step-desc">Produção com alta precisão e acompanhamento em tempo real pelo WhatsApp.</p>
+      </div>
+      <div>
+        <div class="step-num">04</div>
+        <div class="step-title">Entrega</div>
+        <p class="step-desc">Embalagem segura e envio para todo o Brasil. Retirada em SP também disponível.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contato" class="cta-section">
+    <div class="cta-text reveal">
+      <h2>TRAGA<br>SUA <span>IDEIA</span></h2>
+      <p>Fale com a gente pelo WhatsApp ou Instagram. Respondemos rápido e o orçamento é sem compromisso.</p>
+    </div>
+    <div class="cta-buttons reveal">
+      <a href="https://wa.me/5511999999999" target="_blank" class="cta-link">
+        <span class="icon">💬</span> WhatsApp
+      </a>
+      <a href="https://instagram.com/synthhive3d" target="_blank" class="cta-link">
+        <span class="icon">📸</span> Instagram
+      </a>
+      <a href="mailto:contato@synthhive3d.com" class="cta-link">
+        <span class="icon">✉️</span> E-mail
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="logo">SYNTH <span>HIVE</span> 3D</div>
+    <p>© 2025 Synth Hive 3D — Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
