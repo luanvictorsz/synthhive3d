@@ -6,9 +6,9 @@ export default function Hero() {
 
   return (
     <section ref={ref} className={`${styles.hero} ${visible ? styles.on : ''}`}>
-      <div className={styles.eyebrow}>Impressão 3D Premium</div>
+      <div className={styles.eyebrow}>Impressão 3D</div>
       <h1 className={styles.h1}>
-        MODELOS<br /><em>3D ÚNICOS</em>
+        MODELOS<br /><em>3D SOB Encomenda</em>
       </h1>
       <p className={styles.sub}>
         Chaveiros, suportes para Alexa, decorações, action figures e máscaras.

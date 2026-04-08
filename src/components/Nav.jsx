@@ -8,7 +8,7 @@ export default function Nav() {
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>
-        SYNTH <span>HIVE</span> 3D
+        SYNTH <span>HIVE</span>
       </div>
       <ul className={styles.links}>
         <li><a href="#produtos">Produtos</a></li>

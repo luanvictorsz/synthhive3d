@@ -1,10 +1,11 @@
 import { useReveal } from '../hooks/useReveal'
+import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import styles from './Contato.module.css'
 
 const LINKS = [
-  { icon: '💬', label: 'WhatsApp', href: 'https://wa.me/5511999999999' },
-  { icon: '📸', label: 'Instagram', href: 'https://instagram.com/synthhive' },
-  { icon: '✉️', label: 'E-mail', href: 'mailto:contato@synthhive3d.com' },
+  { icon: <FaWhatsapp />, label: 'WhatsApp', href: 'https://wa.me/5511999999999' },
+  { icon: <FaInstagram />, label: 'Instagram', href: 'https://instagram.com/synthhive' },
+  { icon: <FaEnvelope />, label: 'E-mail', href: 'mailto:contato@synthhive3d.com' },
 ]
 
 export default function Contato() {
