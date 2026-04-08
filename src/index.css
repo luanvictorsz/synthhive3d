@@ -1,0 +1,17 @@
+:root {
+  --yellow: #FFD600;
+  --black:  #0A0A0A;
+  --dark:   #141414;
+  --dark2:  #1C1C1C;
+  --white:  #F0EBE1;
+  --grey:   #777;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Syne', sans-serif;
+  overflow-x: hidden;
+}
