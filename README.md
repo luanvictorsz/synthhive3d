@@ -57,3 +57,5 @@ Edite o array `LINKS` em `src/components/Contato.jsx`:
 { icon: '📸', label: 'Instagram', href: 'https://instagram.com/SEUHANDLE' },
 { icon: '✉️', label: 'E-mail',    href: 'mailto:SEU@EMAIL.com' },
 ```
+
+a ideia vai ser baseada em itens geek ou goticos
