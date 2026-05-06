@@ -4,51 +4,57 @@ import styles from './Products.module.css'
 
 const PRODUCTS = [
   {
-    badge: 'TOP VENDA',
     category: 'Acessório',
     name: 'Chaveiros 3D',
-    description: 'Personalizados com qualquer tema: logos, personagens, formas geométricas e muito mais.',
-    price: '15',
-    imgPlaceholderLabel: 'FOTO DOS CHAVEIROS',
+    description: 'Personalizados com qualquer tema...',
+    price: '10',
+    imgSrc: '/products/chaveiros.png',
+    imgAlt: 'Chaveiros 3D',
   },
   {
-    category: 'Organização',
-    name: 'Suporte Alexa',
-    description: 'Suportes decorativos para Amazon Echo, Dot e demais modelos. Designs exclusivos.',
-    price: '45',
-    imgPlaceholderLabel: 'FOTO SUPORTE ALEXA',
-  },
-  {
-    badge: 'EXCLUSIVO',
-    category: 'Decoração',
-    name: 'Decorativos',
-    description: 'Esculturas, miniaturas e objetos decorativos para transformar qualquer ambiente.',
-    price: '60',
-    imgPlaceholderLabel: 'FOTO DECORATIVOS',
-  },
-  {
+    badge: 'TOP VENDA',
     category: 'Colecionável',
-    name: 'Action Figures',
-    description: 'Figuras detalhadas de personagens, heróis, vilões e criações originais.',
-    price: '80',
-    imgPlaceholderLabel: 'FOTO ACTION FIGURES',
+    name: 'Miniaturas',
+    description: 'Figuras detalhadas...',
+    price: '15',
+    imgSrc: '/products/Miniaturas.png',
+    imgAlt: 'Miniaturas',
   },
-  {
-    badge: 'DESTAQUE',
-    category: 'Cosplay / Arte',
-    name: 'Máscaras 3D',
-    description: 'Para cosplay, decoração e eventos. Personagens, robôs, animais e designs únicos.',
-    price: '120',
-    imgPlaceholderLabel: 'FOTO DAS MÁSCARAS',
-  },
-  {
+  // {
+  //   category: 'Organização',
+  //   name: 'Suporte Alexa',
+  //   description: 'Suportes decorativos...',
+  //   price: '45',
+  //   imgSrc: '/products/ghostface.png',
+  //   imgAlt: 'Suporte Alexa',
+  // },
+  // {
+  //   badge: 'EXCLUSIVO',
+  //   category: 'Decoração',
+  //   name: 'Decorativos',
+  //   description: 'Esculturas...',
+  //   price: '60',
+  //   imgSrc: '/products/ghostface.png',
+  //   imgAlt: 'Decorativos',
+  // },
+  // {
+  //   badge: 'DESTAQUE',
+  //   category: 'Cosplay / Arte',
+  //   name: 'Máscaras 3D',
+  //   description: 'Para cosplay...',
+  //   price: '120',
+  //   imgSrc: '/products/ghostface.png',
+  //   imgAlt: 'Máscaras',
+  // },
+   {
     badge: 'VOCÊ CRIA',
     badgeOutline: true,
     category: 'Personalizado',
     name: 'Seu Modelo',
-    description: 'Envie seu arquivo STL ou sua ideia. Imprimimos qualquer modelo sob medida.',
+    description: 'Envie seu arquivo...',
     priceLabel: 'Orçamento\nGrátis',
-    imgPlaceholderLabel: 'FOTO PERSONALIZADO',
+    imgSrc: '/products/personalizados.png',
+   imgAlt: 'Personalizado',
     highlighted: true,
   },
 ]
@@ -60,8 +66,9 @@ export default function Products() {
     <section id="produtos">
       <div ref={ref} className={`${styles.header} ${visible ? styles.on : ''}`}>
         <h2>NOSSOS PRODUTOS</h2>
-        <p>Cada peça é impressa sob demanda com filamento premium e acabamento profissional.</p>
+        <p>Cada peça é impressa sob demanda com filamento premium.</p>
       </div>
+
       <div className={styles.grid}>
         {PRODUCTS.map((p) => (
           <ProductCard key={p.name} {...p} />

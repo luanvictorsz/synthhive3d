@@ -15,7 +15,7 @@ export default function Contato() {
   return (
     <section id="contato" className={styles.section}>
       <div ref={text.ref} className={`${styles.text} ${text.visible ? styles.on : ''}`}>
-        <h2>TRAGA<br />SUA <span>IDEIA</span></h2>
+        <h2>TRAGA<br/>SUA<span>IDEIA</span></h2>
         <p>
           Fale com a gente pelo WhatsApp ou Instagram. Respondemos rápido e o
           orçamento é sem compromisso.
