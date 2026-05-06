@@ -8,7 +8,7 @@ const PRODUCTS = [
     name: 'Chaveiros 3D',
     description: 'Personalizados com qualquer tema...',
     price: '10',
-    imgSrc: 'public/products/chaveiros.png',
+    imgSrc: '/products/chaveiros.png',
     imgAlt: 'Chaveiros 3D',
   },
   {
@@ -17,7 +17,7 @@ const PRODUCTS = [
     name: 'Miniaturas',
     description: 'Figuras detalhadas...',
     price: '15',
-    imgSrc: 'public/products/miniaturas.png',
+    imgSrc: '/products/miniaturas.png',
     imgAlt: 'Miniaturas',
   },
   // {
@@ -53,7 +53,7 @@ const PRODUCTS = [
     name: 'Seu Modelo',
     description: 'Envie seu arquivo...',
     priceLabel: 'Orçamento\nGrátis',
-    imgSrc: 'public/products/personalizados.png',
+    imgSrc: '/products/personalizados.png',
    imgAlt: 'Personalizado',
     highlighted: true,
   },
