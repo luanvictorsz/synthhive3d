@@ -14,7 +14,7 @@ const CATALOG = {
     { name: 'Miniatura Dragão', description: 'Detalhes incríveis em escala 1:32.', price: '15', imgSrc: '/products/miniaturas.png' },
     { name: 'Miniatura Cavaleiro', description: 'Armadura completa pintada à mão.', price: '18', imgSrc: '/products/miniaturas.png' },
     { name: 'Miniatura Robô', description: 'Estilo mecha futurista.', price: '20', imgSrc: '/products/miniaturas.png' },
-    { name: 'Miniatura Nave', description: 'Ficção científica com detalhes.', price: '22', imgSrc: '/products/miniaturas.png' },
+    { name: 'Miniatura Ghostface', description: 'Ficção científica com detalhes.', price: '22', imgSrc: '/products/miniaturas.png' },
     { name: 'Miniatura Criatura', description: 'Seres fantásticos únicos.', price: '25', imgSrc: '/products/miniaturas.png' },
     { name: 'Miniatura Herói', description: 'Seu personagem favorito em 3D.', price: '28', imgSrc: '/products/miniaturas.png' },
   ],
