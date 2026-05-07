@@ -11,7 +11,7 @@ const CATALOG = {
     // { name: 'Chaveiro Duplo', description: 'Par combinando para presentes.', price: '22', imgSrc: '/products/chaveiros.png' },
   ],
   'Colecionável': [
-    { name: 'Miniatura Ghostface', description: 'Ficção científica com detalhes.', price: '20', imgSrc: '/products/miniaturas.png' },
+    { name: 'Miniatura Ghostface', description: 'Ficção científica com detalhes.', price: '15', imgSrc: '/products/miniaturas.png' },
     // { name: 'Miniatura Dragão', description: 'Detalhes incríveis em escala 1:32.', price: '15', imgSrc: '/products/miniaturas.png' },
     // { name: 'Miniatura Freddy', description: 'Armadura completa pintada à mão.', price: '18', imgSrc: '/products/miniaturas.png' },
     // { name: 'Miniatura Baby Yoda', description: 'Estilo mecha futurista.', price: '20', imgSrc: '/products/miniaturas.png' },
