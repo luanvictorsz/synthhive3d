@@ -3,7 +3,7 @@ import { FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import styles from './Contato.module.css'
 
 const LINKS = [
-  { icon: <FaWhatsapp />, label: 'WhatsApp', href: 'https://wa.me/5511999999999' },
+  { icon: <FaWhatsapp />, label: 'WhatsApp', href: 'https://wa.me/5511963173371' },
   { icon: <FaInstagram />, label: 'Instagram', href: 'https://instagram.com/synthhive' },
   { icon: <FaEnvelope />, label: 'E-mail', href: 'mailto:contato@synthhive3d.com' },
 ]
