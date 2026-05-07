@@ -2,7 +2,7 @@ import styles from './Ticker.module.css'
 
 const items = [
   'CHAVEIROS', 'SUPORTE ALEXA', 'DECORATIVOS', 'ACTION FIGURES',
-  'MÁSCARAS', 'PERSONALIZADO', 'ENTREGA RÁPIDA', 'SYNTH HIVE 3D',
+  'MÁSCARAS', 'PERSONALIZADO', 'SYNTH HIVE 3D',
 ]
 
 export default function Ticker() {

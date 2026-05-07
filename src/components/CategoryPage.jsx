@@ -3,26 +3,26 @@ import styles from './CategoryPage.module.css'
 
 const CATALOG = {
   'Acessório': [
-    { name: 'Chaveiro Caveira', description: 'Detalhado e robusto, ideal para mochilas.', price: '10', imgSrc: '/products/chaveiros.png' },
-    { name: 'Chaveiro Animal', description: 'Gatinhos, cachorros e mais.', price: '10', imgSrc: '/products/chaveiros.png' },
-    { name: 'Chaveiro Letra', description: 'Iniciais personalizadas em 3D.', price: '12', imgSrc: '/products/chaveiros.png' },
-    { name: 'Chaveiro Game', description: 'Personagens dos seus jogos favoritos.', price: '14', imgSrc: '/products/chaveiros.png' },
-    { name: 'Chaveiro Anime', description: 'Figuras de animes populares.', price: '14', imgSrc: '/products/chaveiros.png' },
-    { name: 'Chaveiro Duplo', description: 'Par combinando para presentes.', price: '22', imgSrc: '/products/chaveiros.png' },
+    { name: 'Chaveiro Pokebola', description: 'Detalhado e robusto, ideal para mochilas.', price: '10', imgSrc: '/products/chaveiros.png' },
+    // { name: 'Chaveiro Animal', description: 'Gatinhos, cachorros e mais.', price: '10', imgSrc: '/products/chaveiros.png' },
+    // { name: 'Chaveiro Letra', description: 'Iniciais personalizadas em 3D.', price: '12', imgSrc: '/products/chaveiros.png' },
+    // { name: 'Chaveiro Game', description: 'Personagens dos seus jogos favoritos.', price: '14', imgSrc: '/products/chaveiros.png' },
+    // { name: 'Chaveiro Anime', description: 'Figuras de animes populares.', price: '14', imgSrc: '/products/chaveiros.png' },
+    // { name: 'Chaveiro Duplo', description: 'Par combinando para presentes.', price: '22', imgSrc: '/products/chaveiros.png' },
   ],
   'Colecionável': [
-    { name: 'Miniatura Dragão', description: 'Detalhes incríveis em escala 1:32.', price: '15', imgSrc: '/products/miniaturas.png' },
-    { name: 'Miniatura Freddy', description: 'Armadura completa pintada à mão.', price: '18', imgSrc: '/products/miniaturas.png' },
-    { name: 'Miniatura Baby Yoda', description: 'Estilo mecha futurista.', price: '20', imgSrc: '/products/miniaturas.png' },
     { name: 'Miniatura Ghostface', description: 'Ficção científica com detalhes.', price: '20', imgSrc: '/products/miniaturas.png' },
-    { name: 'Miniatura Spock', description: 'Seres fantásticos únicos.', price: '25', imgSrc: '/products/miniaturas.png' },
-    { name: 'Miniatura R.E.P.O', description: 'Seu personagem favorito em 3D.', price: '28', imgSrc: '/products/miniaturas.png' },
+    // { name: 'Miniatura Dragão', description: 'Detalhes incríveis em escala 1:32.', price: '15', imgSrc: '/products/miniaturas.png' },
+    // { name: 'Miniatura Freddy', description: 'Armadura completa pintada à mão.', price: '18', imgSrc: '/products/miniaturas.png' },
+    // { name: 'Miniatura Baby Yoda', description: 'Estilo mecha futurista.', price: '20', imgSrc: '/products/miniaturas.png' },
+    // { name: 'Miniatura Spock', description: 'Seres fantásticos únicos.', price: '25', imgSrc: '/products/miniaturas.png' },
+    // { name: 'Miniatura R.E.P.O', description: 'Seu personagem favorito em 3D.', price: '28', imgSrc: '/products/miniaturas.png' },
   ],
   'Personalizado': [
     { name: 'Modelo do Cliente', description: 'Envie seu arquivo STL e imprimimos.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
-    { name: 'Escultura Personalizada', description: 'Criamos o modelo 3D do zero para você.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
-    { name: 'Presente Corporativo', description: 'Brindes e troféus com sua marca.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
-    { name: 'Protótipo', description: 'Impressão rápida para validar seu projeto.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
+  //   { name: 'Escultura Personalizada', description: 'Criamos o modelo 3D do zero para você.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
+  //   { name: 'Presente Corporativo', description: 'Brindes e troféus com sua marca.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
+  //   { name: 'Protótipo', description: 'Impressão rápida para validar seu projeto.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
   ],
 }
 
