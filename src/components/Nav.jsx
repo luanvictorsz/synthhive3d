@@ -1,13 +1,13 @@
 import styles from './Nav.module.css'
 
-export default function Nav() {
+export default function Nav({ onLogoClick }) {
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <nav className={styles.nav}>
-      <div className={styles.logo}>
+      <div className={styles.logo} onClick={onLogoClick} style={{ cursor: onLogoClick ? 'pointer' : 'default' }}>
         SYNTH <span>HIVE</span>
       </div>
       <ul className={styles.links}>

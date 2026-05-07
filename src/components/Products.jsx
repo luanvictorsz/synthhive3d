@@ -59,7 +59,7 @@ const PRODUCTS = [
   },
 ]
 
-export default function Products() {
+export default function Products({ onSelectCategory }) {
   const { ref, visible } = useReveal()
 
   return (
@@ -71,7 +71,7 @@ export default function Products() {
 
       <div className={styles.grid}>
         {PRODUCTS.map((p) => (
-          <ProductCard key={p.name} {...p} />
+          <ProductCard key={p.name} {...p} onSelect={() => onSelectCategory(p.category)} />
         ))}
       </div>
     </section>
