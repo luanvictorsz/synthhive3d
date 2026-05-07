@@ -89,7 +89,7 @@ export default function CategoryPage({ category, onBack }) {
                   className={styles.btn}
                   onClick={(e) => {
                     e.stopPropagation()
-                    window.open(`https://wa.me/5511999999999?text=Olá! Tenho interesse em: ${item.name}`, '_blank')
+                    window.open(`https://wa.me/5511963173371?text=Olá! Tenho interesse em: ${item.name}`, '_blank')
                   }}
                 >
                   Pedir
