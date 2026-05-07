@@ -118,7 +118,7 @@ export default function CategoryPage({ category, onBack }) {
               </div>
               <button
                 className={styles.detailBtn}
-                onClick={() => window.open(`https://wa.me/5511999999999?text=Olá! Tenho interesse em: ${items[selected].name}`, '_blank')}
+                onClick={() => window.open(`https://wa.me/5511963173371?text=Olá! Tenho interesse em: ${items[selected].name}`, '_blank')}
               >
                 Solicitar via WhatsApp
               </button>
