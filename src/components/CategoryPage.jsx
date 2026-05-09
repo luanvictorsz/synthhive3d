@@ -3,11 +3,11 @@ import styles from './CategoryPage.module.css'
 
 const CATALOG = {
   'Acessório': [
-    { name: 'Chaveiro Repo', description: 'Personagens dos seus jogos favoritos.', price: '14', imgSrc: '/products/repo.png' },
+    { name: 'Chaveiro Repo', description: 'Personagens dos seus jogos cooperativos favoritos.', price: '14', imgSrc: '/products/repo.png' },
   ],
   'Colecionável': [
-    { name: 'Miniatura Ghostface', description: 'Ficção científica com detalhes.', price: '15', imgSrc: '/products/miniaturas.png' },
-    { name: 'Miniatura Hollow Knight', description: 'Seres fantásticos únicos.', price: '20', imgSrc: '/products/hollow.png' },
+    { name: 'Miniatura Ghostface', description: 'Classicos do terror, só que de forma fofa, né?.', price: '15', imgSrc: '/products/miniaturas.png' },
+    { name: 'Miniatura Hollow Knight', description: 'Peça com detalhes pintado a mão, um dos jogos mais desafiadores.', price: '20', imgSrc: '/products/hollow.png' },
   ],
   // 'Personalizado': [
   //   { name: 'Modelo do Cliente', description: 'Envie seu arquivo STL e imprimimos.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
