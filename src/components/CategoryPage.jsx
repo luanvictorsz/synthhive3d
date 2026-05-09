@@ -6,15 +6,15 @@ const CATALOG = {
     { name: 'Chaveiro Repo', description: 'Personagens dos seus jogos favoritos.', price: '14', imgSrc: '/products/repo.png' },
   ],
   'Colecionável': [
-    { name: 'Miniatura Ghostface', description: 'Ficção científica com detalhes.', price: '20', imgSrc: '/products/miniaturas.png' },
+    { name: 'Miniatura Ghostface', description: 'Ficção científica com detalhes.', price: '15', imgSrc: '/products/miniaturas.png' },
     { name: 'Miniatura Hollow Knight', description: 'Seres fantásticos únicos.', price: '20', imgSrc: '/products/hollow.png' },
   ],
-  'Personalizado': [
-    { name: 'Modelo do Cliente', description: 'Envie seu arquivo STL e imprimimos.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
-    { name: 'Escultura Personalizada', description: 'Criamos o modelo 3D do zero para você.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
-    { name: 'Presente Corporativo', description: 'Brindes e troféus com sua marca.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
-    { name: 'Protótipo', description: 'Impressão rápida para validar seu projeto.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
-  ],
+  // 'Personalizado': [
+  //   { name: 'Modelo do Cliente', description: 'Envie seu arquivo STL e imprimimos.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
+  // //   { name: 'Escultura Personalizada', description: 'Criamos o modelo 3D do zero para você.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
+  // //   { name: 'Presente Corporativo', description: 'Brindes e troféus com sua marca.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
+  // //   { name: 'Protótipo', description: 'Impressão rápida para validar seu projeto.', priceLabel: 'Orçamento\nGrátis', imgSrc: '/products/personalizados.png' },
+  // ],
 }
 
 const DEFAULT_ITEMS = (category) => CATALOG[category] || []
