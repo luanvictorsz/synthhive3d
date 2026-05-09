@@ -46,17 +46,17 @@ const PRODUCTS = [
   //   imgSrc: '/products/ghostface.png',
   //   imgAlt: 'Máscaras',
   // },
-   {
-    badge: 'VOCÊ CRIA',
-    badgeOutline: true,
-    category: 'Personalizado',
-    name: 'Seu Modelo',
-    description: 'Envie seu arquivo...',
-    priceLabel: 'Orçamento\nGrátis',
-    imgSrc: '/products/personalizados.png',
-   imgAlt: 'Personalizado',
-    highlighted: true,
-  },
+  //  {
+  //   badge: 'VOCÊ CRIA',
+  //   badgeOutline: true,
+  //   category: 'Personalizado',
+  //   name: 'Seu Modelo',
+  //   description: 'Envie seu arquivo...',
+  //   priceLabel: 'Orçamento\nGrátis',
+  //   imgSrc: '/products/personalizados.png',
+  //  imgAlt: 'Personalizado',
+  //   highlighted: true,
+  // },
 ]
 
 export default function Products({ onSelectCategory }) {
