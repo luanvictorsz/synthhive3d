@@ -3,7 +3,7 @@ import styles from './CategoryPage.module.css'
 
 const CATALOG = {
   'Acessório': [
-    { name: 'Chaveiro Repo', description: 'Personagens dos seus jogos cooperativos favoritos.', price: '14', imgSrc: '/products/repo.png' },
+    { name: 'Chaveiro Repo', description: 'Personagens dos seus jogos cooperativos favoritos.', price: '12', imgSrc: '/products/repo.png' },
   ],
   'Colecionável': [
     { name: 'Miniatura Ghostface', description: 'Classicos do terror, só que de forma fofa, né?.', price: '15', imgSrc: '/products/miniaturas.png' },
